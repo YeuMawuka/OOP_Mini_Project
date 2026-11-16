@@ -1,0 +1,7 @@
+# EHR Management System - dependencies
+#
+# This project uses ONLY the Python 3 standard library
+# (sqlite3, abc, unittest, re, datetime, os, tempfile).
+# No third-party packages need to be installed.
+#
+# Required interpreter: Python 3.9 or newer.
