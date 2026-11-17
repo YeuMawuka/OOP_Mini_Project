@@ -1,0 +1,25 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# SQLite database created at run time (patient data must never be committed)
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Test and coverage output
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
