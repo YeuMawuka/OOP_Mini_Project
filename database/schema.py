@@ -37,4 +37,7 @@ CREATE TABLE IF NOT EXISTS doctors (
     department TEXT NOT NULL,
     created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+CREATE INDEX IF NOT EXISTS idx_patients_name ON patients (last_name, first_name);
+CREATE INDEX IF NOT EXISTS idx_doctors_specialization ON doctors (specialization);
 """
