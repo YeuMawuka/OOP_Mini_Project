@@ -58,4 +58,22 @@ CREATE TABLE IF NOT EXISTS appointments (
 CREATE INDEX IF NOT EXISTS idx_appointments_patient ON appointments (patient_id);
 CREATE INDEX IF NOT EXISTS idx_appointments_doctor_slot
     ON appointments (doctor_id, appointment_date, appointment_time);
+
+CREATE TABLE IF NOT EXISTS medical_records (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    patient_id INTEGER NOT NULL,
+    doctor_id INTEGER NOT NULL,
+    appointment_id INTEGER,
+    visit_date TEXT NOT NULL,
+    diagnosis TEXT NOT NULL,
+    treatment TEXT NOT NULL,
+    prescription TEXT NOT NULL DEFAULT '',
+    notes TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (patient_id) REFERENCES patients (id) ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES doctors (id) ON DELETE RESTRICT,
+    FOREIGN KEY (appointment_id) REFERENCES appointments (id) ON DELETE SET NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_records_patient ON medical_records (patient_id, visit_date);
 """
