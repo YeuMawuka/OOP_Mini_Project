@@ -40,4 +40,22 @@ CREATE TABLE IF NOT EXISTS doctors (
 
 CREATE INDEX IF NOT EXISTS idx_patients_name ON patients (last_name, first_name);
 CREATE INDEX IF NOT EXISTS idx_doctors_specialization ON doctors (specialization);
+
+CREATE TABLE IF NOT EXISTS appointments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    patient_id INTEGER NOT NULL,
+    doctor_id INTEGER NOT NULL,
+    appointment_date TEXT NOT NULL,
+    appointment_time TEXT NOT NULL,
+    reason TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'Scheduled'
+        CHECK (status IN ('Scheduled', 'Completed', 'Cancelled')),
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY (patient_id) REFERENCES patients (id) ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES doctors (id) ON DELETE RESTRICT
+);
+
+CREATE INDEX IF NOT EXISTS idx_appointments_patient ON appointments (patient_id);
+CREATE INDEX IF NOT EXISTS idx_appointments_doctor_slot
+    ON appointments (doctor_id, appointment_date, appointment_time);
 """
