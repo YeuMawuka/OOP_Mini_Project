@@ -37,11 +37,11 @@ using Git branches, pull requests, code reviews and merge-conflict resolution on
 
 1. Install Python 3 from https://www.python.org/downloads/ (tick "Add Python to PATH" on Windows).
 2. Install Git from https://git-scm.com/downloads.
-3. Clone the repository (replace the address with your own repository link):
+3. Clone the repository (you need to be added as a collaborator because it is private):
 
    ```bash
-   git clone https://github.com/<your-username>/EHR-System.git
-   cd EHR-System
+   git clone https://github.com/yeumawuka-stack/OOP_Mini_Project.git
+   cd OOP_Mini_Project
    ```
 
 No `pip install` is needed because there are no third-party packages (see `requirements.txt`).
@@ -99,7 +99,7 @@ EHR-System/
 
 | Name | Role in the project |
 | --- | --- |
-| Yeukai | Project set-up, utilities, abstract base class, Person/Patient/Doctor classes, database layer, patient and doctor services (steps 1-5) |
-| Nicodimus | Appointment and MedicalRecord classes, appointment/record/dashboard services, console menus, final tests, documentation and report (steps 6-10) |
+| Nicodimus | Project set-up, utilities, abstract base class, Person/Patient/Doctor classes, Appointment and MedicalRecord classes, appointment/record/dashboard services, console menus and tests (steps 1, 2, 3, 6, 7, 8, 9) |
+| Yeukai | Database layer, abstract service class, patient and doctor services, final documentation and release (steps 4, 5, 10) |
 
 Each contribution can be verified in the GitHub commit history, pull requests and contribution graph.
